@@ -8,10 +8,27 @@
     justify-content: center;
     
 }
-.difficulty {
+.difficulty1 {
     text-align: center;
     display: flex;
     flex-direction: row;
     justify-content: center;
     justify-content: space-around;
+    width: 200px;
+}
+.difficulty2 {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-around;
+    width: 200px;
+}
+.difficulty3 {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-around;
+    width: 200px;
 }
