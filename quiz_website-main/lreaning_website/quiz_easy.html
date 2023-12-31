@@ -3,9 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>[ QUIZ ]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #quiz-form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
+    <h1>파이썬 코드 퀴즈</h1>
     
+    <form id="quiz-form">
+        <label for="question1">1. 다음 중 파이썬의 주석 처리 방법은?</label>
+        <input type="radio" name="question1" value="a"> a. // 주석 내용
+        <input type="radio" name="question1" value="b"> b. /* 주석 내용 */
+        <input type="radio" name="question1" value="c"> c. # 주석 내용
+        <input type="radio" name="question1" value="d"> d. -- 주석 내용
+
+        
+        <button type="button" onclick="checkAnswers()">제출</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        function checkAnswers() {
+            var userAnswer1 = document.querySelector('input[name="question1"]:checked');
+
+            if (userAnswer1 && userAnswer1.value === "c") {
+                window.location.href = "correct.html";
+            } else {
+                window.location.href = "incorrect.html";
+            }
+        }
+    </script>
 </body>
 </html>
