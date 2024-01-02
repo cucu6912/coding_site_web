@@ -40,10 +40,11 @@
     <p id="timer">남은 시간: <span id="countdown">10</span>초</p>
     <form id="quiz-form">
         <label for="question1">1. 다음 중 파이썬의 주석 처리 방법은?</label>
-        <input type="radio" name="question1" value="a"> a. // 주석 내용
-        <input type="radio" name="question1" value="b"> b. /* 주석 내용 */
-        <input type="radio" name="question1" value="c"> c. # 주석 내용
-        <input type="radio" name="question1" value="d"> d. -- 주석 내용
+        <input type="radio" name="question1" value="1"> a. // 주석 내용
+        <input type="radio" name="question1" value="2"> b. /* 주석 내용 */
+        <input type="radio" name="question1" value="3"> c. # 주석 내용
+        <input type="radio" name="question1" value="4"> d. -- 주석 내용
+        <input type="radio" name="question1" value="5"> e. == 주석 내용
 
         <button type="button" onclick="checkAnswers()">제출</button>
     </form>
@@ -56,7 +57,6 @@
             timerElement.textContent = countdown;
 
             if (countdown === 0) {
-                window.location.href = "fail.html";
             } else {
                 countdown--;
                 setTimeout(updateTimer, 1000);
@@ -67,15 +67,24 @@
         setTimeout(updateTimer, 1000);
 
         function checkAnswers() {
-            var userAnswer1 = document.querySelector('input[name="question1"]:checked');
+            var userAnswer = []
 
-            if (userAnswer1 && userAnswer1.value === "c") {
-                localStorage.setItem('score', parseInt(localStorage.getItem('score') || 0) + 5);
-                window.location.href = "success.html";
-            } else {
-                window.location.href = "fail.html";
+            var Answer = ['3']
+
+            
+            for (var i = 0; i < 1; i++){
+                userAnswer.push(document.querySelector('input[name="question1"]:checked').value)
             }
+
+            
+            for (var i = 0; i< 1; i++){
+                if (userAnswer1[i+1] == Answer[i+1]) {
+                    localStorage.setItem('score', parseInt(localStorage.getItem('score') || 0) + 5);
+                }
+            }
+            window.location.href = "success.html";
         }
+
     </script>
 </body>
 </html>
