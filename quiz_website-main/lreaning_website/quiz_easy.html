@@ -33,7 +33,43 @@
 </head>
 <body>
     <h1>파이썬 코드 퀴즈</h1>
-    
+    <p>
+        <label for="Timer">남은 시간:</label>
+        <input id="Timer" type="text" value="" readonly/>
+    </p>
+    <script>
+        const Timer = document.getElementById('Timer');
+        let time = 180000;
+        let min = 3;
+        let sec = 60;
+
+        Timer.value = min + ":" + '00';
+
+        function TIMER() {
+            PlAYTIME = setInterval(function () {
+                time = time - 1000;
+                min = time / (60 * 1000);
+
+                if (sec > 0) {
+                    sec = sec - 1;
+                    Timer.value = Math.floor(min) + ':' + sec;
+                }
+                if (sec === 0) {
+                    sec = 60;
+                    Timer.value = Math.floor(min) + ':' + '00';
+                }
+
+            }, 1000);
+        }
+
+        TIMER();
+
+        setTimeout(function () {
+            clearInterval(PlAYTIME);
+            window.location.href = "fail.html";
+        }, 180000);
+    </script>
+
     <form id="quiz-form">
         <label for="question1">1. 다음 중 파이썬의 주석 처리 방법은?</label>
         <input type="radio" name="question1" value="a"> a. // 주석 내용
@@ -41,7 +77,6 @@
         <input type="radio" name="question1" value="c"> c. # 주석 내용
         <input type="radio" name="question1" value="d"> d. -- 주석 내용
 
-        
         <button type="button" onclick="checkAnswers()">제출</button>
     </form>
 
