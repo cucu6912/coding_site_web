@@ -25,6 +25,10 @@
             margin-bottom: 10px;
         }
 
+        #timer {
+            margin-bottom: 10px;
+        }
+
         #result {
             margin-top: 20px;
             font-weight: bold;
@@ -33,6 +37,7 @@
 </head>
 <body>
     <h1>파이썬 코드 퀴즈</h1>
+    <p id="timer">남은 시간: <span id="countdown">10</span>초</p>
     <form id="quiz-form">
         <label for="question1">1. 다음 중 파이썬의 주석 처리 방법은?</label>
         <input type="radio" name="question1" value="a"> a. // 주석 내용
@@ -44,6 +49,23 @@
     </form>
 
     <script>
+        let countdown = 10; // 초 단위로 설정
+
+        function updateTimer() {
+            const timerElement = document.getElementById('countdown');
+            timerElement.textContent = countdown;
+
+            if (countdown === 0) {
+                window.location.href = "fail.html";
+            } else {
+                countdown--;
+                setTimeout(updateTimer, 1000);
+            }
+        }
+
+        // 페이지 로딩 후 1초마다 타이머 업데이트
+        setTimeout(updateTimer, 1000);
+
         function checkAnswers() {
             var userAnswer1 = document.querySelector('input[name="question1"]:checked');
 
